@@ -5,7 +5,7 @@ import type { Movie } from "../types/movie";
 const api = axios.create({
   baseURL: "https://api.themoviedb.org/3/",
   headers: {
-    Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
+    Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`,
   },
 });
 
@@ -26,5 +26,3 @@ export async function getMovies(query: string): Promise<Movie[]> {
     throw new Error("Failed to fetch movies");
   }
 }
-
-
