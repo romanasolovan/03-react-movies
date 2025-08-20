@@ -17,6 +17,15 @@ const MovieModal = ({ movie, onClose }: MovieModalProps) => {
         return () => window.removeEventListener("keydown", onEsc);
     }, [onClose]);
 
+    useEffect(() => {
+        const originalStyle = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+
+        return () => {
+            document.body.style.overflow = originalStyle;
+        };
+    }, []);
+
     const handleBackdrop = (e: React.MouseEvent) => {
         if (e.target === e.currentTarget) onClose();
     };
