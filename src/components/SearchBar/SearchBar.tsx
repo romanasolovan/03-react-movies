@@ -10,9 +10,12 @@ function SearchBar({ onSubmit }: SearchBarProps) {
     const searchData = FormData.get("query") as string;
     if (!searchData.trim()) {
       toast.error('Please enter your search query.');
+      return;
     }
     onSubmit(searchData);
   }
+
+
     return (
         <header className={styles.header}>
           <div className={styles.container}>
@@ -38,6 +41,6 @@ function SearchBar({ onSubmit }: SearchBarProps) {
           </div>
         </header>
       );
-}
+};
     
 export default SearchBar;
